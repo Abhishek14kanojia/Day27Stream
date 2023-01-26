@@ -1,9 +1,11 @@
 package com.day27AddressBook;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class MultipleAddressbook {
 
@@ -106,9 +108,60 @@ public class MultipleAddressbook {
 	                System.out.println(contact);  
 	            }
 	        }
-	 } public void countPeopleByRegion(HashMap<String, ArrayList<PersonContact>> personbycity) {
-			// TODO Auto-generated method stub
-			
-		}
+	 }public void countPeopleByRegion(HashMap<String, ArrayList<PersonContact>> personbycity) {
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter the name of the region :");
+		        String regionName = sc.next();
+		        long countPeople = listToDisplay.values().stream()
+		                .map(region -> region.stream().filter(person -> person.getState().equals(regionName) || person.getCity().equals(regionName)))
+		                .count();
+
+		        System.out.println("Number of People residing in " + regionName + " are: " + countPeople + "\n");
+			}
+		
+	 public void sortAddressBook(int sortingChoice) {
+	        List<PersonContact> sortedContactList;
+	        for (String i : addressmap.keySet()) {
+	            Map<String, PersonContact> contactList = (Map<String, PersonContact>) addressmap.get(i).contacts;
+
+	            switch (sortingChoice) {
+
+	                case 1:
+	                    sortedContactList = contactList.values().stream()
+	                            .sorted((firstperson, secondperson) -> firstperson.getFirstName().compareTo(secondperson.getFirstName()))
+	                            .collect(Collectors.toList());
+	                    printSortedList(sortedContactList);
+	                    break;
+
+	                case 2:
+	                    sortedContactList = contactList.values().stream()
+	                            .sorted((firstperson, secondperson) -> firstperson.getCity().compareTo(secondperson.getCity()))
+	                            .collect(Collectors.toList());
+	                    printSortedList(sortedContactList);
+	                    break;
+
+	                case 3:
+	                    sortedContactList = contactList.values().stream()
+	                            .sorted((firstperson, secondperson) -> firstperson.getState().compareTo(secondperson.getState()))
+	                            .collect(Collectors.toList());
+	                    printSortedList(sortedContactList);
+	                    break;
+
+	                case 4:
+	                    sortedContactList = contactList.values().stream()
+	                            .sorted((firstperson, secondperson) -> Long.valueOf(firstperson.getZip()).compareTo(Long.valueOf(secondperson.getZip())))
+	                            .collect(Collectors.toList());
+	                    printSortedList(sortedContactList);
+	                    break;
+	            } 
+	        }
+	 }
+	private void printSortedList(List<PersonContact> sortedContactList) {
+		Iterator iterator = (Iterator) sortedContactList.iterator();
+     while (iterator.hasNext()) {
+         System.out.println(iterator.next());
+         System.out.println();
+     }
+	} 
 
 }

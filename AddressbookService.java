@@ -3,10 +3,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
+import java.util.Scanner; 
 
 public class AddressbookService {
 
+	public static final HashMap<String, ArrayList<PersonContact>> personByCity = null;
 	public static HashMap<String, ArrayList<PersonContact>> personByState;
 	Scanner sc = new Scanner(System.in);
 	String name;
@@ -202,10 +203,10 @@ public class AddressbookService {
 	        List<PersonContact> personByState;
 			if (personByState.containsKey(contact.getState())) {
 	            personByState.get(contact.getState()).add(contact);
-	        } else { 
+	        } else {  
 	            ArrayList<PersonContact> stateList = new ArrayList<ContactPerson>();
 	            stateList.add(contact);
 	            personByState.put(contact.getState(), stateList);
-	        }  
-	    }
+	        }   
+	    } 
 }

@@ -49,10 +49,10 @@ public class PersonContact {
 	public final Long getPhoneNumber() {
 		return PhoneNumber;
 	}
-	public final void setPhoneNumber(Long phoneNumber) {
+	public final void setPhoneNumber(Long phoneNumber) { 
 		PhoneNumber = phoneNumber;
 	}
-	public final String getEmail() {  
+	public final String getEmail() {   
 		return Email;
 	}
 	public final void setEmail(String email) {
