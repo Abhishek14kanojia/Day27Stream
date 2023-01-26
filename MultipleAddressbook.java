@@ -106,6 +106,9 @@ public class MultipleAddressbook {
 	                System.out.println(contact);  
 	            }
 	        }
-	 } 
+	 } public void countPeopleByRegion(HashMap<String, ArrayList<PersonContact>> personbycity) {
+			// TODO Auto-generated method stub
+			
+		}
 
 }

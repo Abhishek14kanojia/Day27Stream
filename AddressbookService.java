@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class AddressbookService {
 
+	public static HashMap<String, ArrayList<PersonContact>> personByState;
 	Scanner sc = new Scanner(System.in);
 	String name;
 	
@@ -201,7 +202,7 @@ public class AddressbookService {
 	        List<PersonContact> personByState;
 			if (personByState.containsKey(contact.getState())) {
 	            personByState.get(contact.getState()).add(contact);
-	        } else {
+	        } else { 
 	            ArrayList<PersonContact> stateList = new ArrayList<ContactPerson>();
 	            stateList.add(contact);
 	            personByState.put(contact.getState(), stateList);
