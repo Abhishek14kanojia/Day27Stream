@@ -1,5 +1,6 @@
 package com.day27AddressBook;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -76,5 +77,24 @@ public class MultipleAddressbook {
 	        }
 	        System.out.println(" ");
 	    }
+	 
+	 public void searchByCity() {
+		 Scanner sc = new Scanner(System.in);
+	        System.out.println("Enter the name of the City to get the persons : ");
+	        String cityName = sc.next();
+	        for (String i : addressmap.keySet()) {
+	            List<PersonContact> arr = addressmap.get(i).contacts;
+	            arr.stream().filter(person -> person.getCity().equals(cityName)).forEach(person -> System.out.println(person.getFirstName()));
+	        }
+	    }
+	 public void searchByState() {
+		 	Scanner sc = new Scanner(System.in);
+	        System.out.println("Enter the name of the State to the get persons : ");
+	        String stateName = sc.next();
+	        for (String i : addressmap.keySet()) {
+	            List<PersonContact> arr = addressmap.get(i).contacts;
+	            arr.stream().filter(person -> person.getState().equals(stateName)).forEach(person -> System.out.println(person.getFirstName()));
+	        }
+	 }
 
 }

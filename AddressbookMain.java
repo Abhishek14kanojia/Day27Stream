@@ -42,8 +42,6 @@ public class AddressbookMain {
 					System.out.println("Error wrong input ");
 			}
 			
-			
-			
 		}
 		
 	

@@ -187,5 +187,4 @@ public class AddressbookService {
 	        contacts.remove(contact);
 	        System.out.println("The contact has been deleted from the Address Book");
 	    }
-
 }
