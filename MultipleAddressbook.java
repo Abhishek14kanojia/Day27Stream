@@ -1,4 +1,5 @@
 package com.day27AddressBook;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -96,5 +97,15 @@ public class MultipleAddressbook {
 	            arr.stream().filter(person -> person.getState().equals(stateName)).forEach(person -> System.out.println(person.getFirstName()));
 	        }
 	 }
+	 public void displayPeopleByRegion(HashMap<String, ArrayList<PersonContact>> addressBookMap) {
+	        List<PersonContact> contacts;
+	        for (String name : addressBookMap.keySet()) {
+	            System.out.println("People residing in: " + name);
+	            contacts = addressBookMap.get(name);
+	            for (PersonContact contact : contacts) {
+	                System.out.println(contact);  
+	            }
+	        }
+	 } 
 
 }

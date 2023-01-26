@@ -63,6 +63,6 @@ public class PersonContact {
 		return "PersonContact [FirstName=" + FirstName + ", LastName=" + LastName + ", Address=" + Address + ", City="
 				+ City + ", State=" + State + ", Zip=" + Zip + ", PhoneNumber=" + PhoneNumber + ", Email=" + Email
 				+ "]";
-	}
+	} 
 	
 }
